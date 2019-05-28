@@ -23,6 +23,12 @@ if ('WebSocket' in window) {
         }
       }
     };
+    socket.onclose =  async function(err) {
+       window.location.reload();
+    }
+    socket.onerror = function (msg) {
+        window.location.reload();
+    }
   })();
   console.log("Autoload Is Ready to Use");
 }
