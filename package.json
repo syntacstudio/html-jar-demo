@@ -5,7 +5,7 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "node bin/server.js",
-    "dev": "npm run development",
+    "dev": "node_modules/nodemon/bin/nodemon.js",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
     "watch-poll": "npm run watch -- --watch-poll",
@@ -30,6 +30,7 @@
     "laravel-mix": "^4.0.15",
     "lodash": "^4.17.11",
     "mime": "^2.4.2",
+    "nodemon": "^1.19.1",
     "path": "^0.12.7",
     "popper.js": "^1.15.0",
     "recursive-readdir-sync": "^1.0.6",
@@ -37,7 +38,8 @@
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
-  },"engines": {
+  },
+  "engines": {
     "node": "11.x"
   }
 }
