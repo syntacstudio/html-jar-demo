@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{getTitle()}}{{env.APP_NAME}}</title>
+    <title>@{{getTitle()}}{{env.APP_NAME}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
     <header id="header" class="bg-primary">
@@ -47,5 +47,5 @@
       @!section('content')
     </div>
   </body>
-  <script src="{{asset("js/app.js")}}" defer=""></script>
+  <script src="/assets/js/app.js" defer=""></script>
 </html>
