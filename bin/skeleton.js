@@ -1,7 +1,7 @@
 "use strict"
 
 /**
-** Setup configuration and Autoloder
+** Setup configuration and Autoloader
 ** 
 **/ 
 const express  =  require("express");
@@ -14,9 +14,7 @@ global.App  =  App;
 require("../config/Skeleton");
 // Use engine 
 use("config/engine")
-// creating base application
-App.use(express.static(base("public")));
-
+//
 module.exports  = {
 	App 
 }

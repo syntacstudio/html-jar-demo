@@ -1,4 +1,5 @@
 "use strict"
+const express  =  require("express");
 
 /**
 ** This basic data 
@@ -19,7 +20,10 @@ use("bootstrap/autoloader/Controller");
 
 
 // use router 
-use("routes/web.js");
+use("routes.web.js");
+//Use public dir
+App.use(express.static(base("public")));
+
 
 // 404
 App.use(function (req, res, next) {

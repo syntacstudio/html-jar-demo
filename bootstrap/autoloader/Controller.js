@@ -14,13 +14,13 @@ const recursiveReadSync = require('recursive-readdir-sync');
 ** @void Main
 **/
 
-const ControllerFiles  = recursiveReadSync(path.join(__dirname+"../../../app/controllers") );	
+
+const ControllerFiles  = recursiveReadSync(base("/app/controllers"));	
 ControllerFiles.forEach((item)=>{
 	try {
-		let itemName  =  item.replace(path.join(__dirname,"../../app/controllers/"),"").replace(".js","");
+		let itemName  =  item.replace(base("app/controllers/"),"").replace(".js","");
 		if (itemName != "Controller") {
 			global[itemName] =  require(item);
-			let obj = "new "+itemName+"() ";
 			global[itemName] = eval( "new "+itemName+"() " );
 		}
 	}
@@ -28,6 +28,22 @@ ControllerFiles.forEach((item)=>{
 		console.log(err)
 	}
 })
+
 //console.log(global)
 
- HomeController.index()
+
+/*
+ function load(name) {
+ 	let file  =  name.split(".");
+ 	let readed = "";
+ 	if (file.length > 2) {
+ 		for (var i = 0; i < (file.length - 1); i++) {
+ 			readed += "/"+file[i]
+ 		}
+ 	} else {
+ 		readed = file[0];
+ 	}
+ 	global[file[(file.length - 2)]] = eval('use("app/controllers/'+readed+'")');
+ 	//delete global[file[(file.length - 2)]]
+ 	return  eval("new "+file[(file.length - 2)]+"()."+file[(file.length-1)]);
+ }*/

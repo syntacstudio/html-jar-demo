@@ -4,8 +4,9 @@ class HomeController extends Controller {
 	constructor() {
 		super();
 	}
-	index() {
-		console.log("demo")
+	index(req,res) {
+		console.log(route("home"))
+		return view("index")
 	}
 }
 

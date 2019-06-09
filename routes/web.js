@@ -1,3 +1,5 @@
-import {App as Route} from "../bin/skeleton";
+const Route =  use("bin/router")
 
-Route.get("/",HomeController.index)
+
+Route.get("/",HomeController.index,{middleware:"Auth",name:"home"});
+Route.get("/hello",HomeController.index,{middleware:"Auth",name:"asston"});
