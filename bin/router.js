@@ -3,6 +3,8 @@
 ** Creating expert router
 **/
 import { App as Route  } from "./skeleton";
+import { Render  } from "./render";
+
 use("app/kernel");
 global["Routes"] =  {};
 /**
@@ -15,14 +17,16 @@ global["Routes"] =  {};
 **/
 
 
+// Method get 
+
 async function get(route,controller,param=null) {
 	// creatign global name
 	if (param["name"]) {
 		global["Routes"][param["name"]] =  route;
 	}
-	Route.get(route,function(req,res,next){
+	Route.get(route,csrfProtection,function(req,res,next){
 		function _send() {
-			return res.send(controller(req,res,next))
+			return res.send(Render(req,controller))
 		}
 		if (param) {
 			if (param["middleware"]) {

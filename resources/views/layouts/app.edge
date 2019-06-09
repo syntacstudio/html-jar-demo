@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>@{{getTitle()}}{{env.APP_NAME}}</title>
+    <title>{{config().APP_NAME}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{config().csrfToken}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
@@ -12,7 +13,7 @@
     <header id="header" class="bg-primary">
       <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark  ">
-          <a class="navbar-brand" href="/"><h2>{{env.APP_NAME}}</h2></a>
+          <a class="navbar-brand" href="/"><h2>{{config().APP_NAME}}</h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>

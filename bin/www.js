@@ -1,5 +1,7 @@
 "use strict"
 const express  =  require("express");
+var fs = require('fs')
+var https = require('https')
 
 /**
 ** This basic data 
@@ -13,9 +15,18 @@ use("bootstrap/autoloader/Controller");
 
 (async ()=>{
 	// Listening app server
-	await App.listen(process.env.PORT, process.env.HOST)
-	// callback console
-	console.log(`Application listen on ${process.env.HOST}:${process.env.PORT}`)
+	if (process.env.SSL == "true") {
+		https.createServer({
+			key :fs.readFileSync(base("/ssl/server.key"),"utf8"),
+			cert : fs.readFileSync(base("/ssl/server.cert","utf8"))
+		},App).listen(process.env.PORT, process.env.HOST,function() {
+			console.log(`Application listen on Https://${process.env.HOST}:${process.env.PORT}`)
+		})
+	} else {
+		await App.listen(process.env.PORT, process.env.HOST , function() {
+			console.log(`Application listen on Http://${process.env.HOST}:${process.env.PORT}`)
+		})
+	}
 })()
 
 
