@@ -1,6 +1,6 @@
 const Route =  use("bin/router")
 
 
-Route.get("/",HomeController.index,{middleware:"Auth",name:"home"});
+Route.Get("/",HomeController.index,{middleware:"Auth",name:"home"});
 
-Route.get("/hello",HomeController.index,{middleware:"Auth",name:"asston"});
+Route.Post("/hello",HomeController.store,{name:"store"});

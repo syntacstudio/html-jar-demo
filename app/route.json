@@ -1,9 +1,0 @@
-[
-	{
-		"route" :  "/",
-		"file"  :  "index.edge"
-	} , {
-		"route" :  "/hello",
-		"file"  :  "hello.edge"
-	}
-]

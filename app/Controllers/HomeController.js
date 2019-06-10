@@ -4,10 +4,13 @@ class HomeController extends Controller {
 	constructor() {
 		super();
 	}
-	index(req,res) {
-		console.log(route("home"))
+	 async index(req) {
 		return view("index")
 	}
+	async store(req) {
+		console.log(req.body)
+		return view("index");
+	} 
 }
 
 module.exports = HomeController;
