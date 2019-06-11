@@ -3,7 +3,8 @@
   "ignore": [
     ".git",
     "node_modules/**/node_modules",
-    "resources"
+    "resources",
+    "data"
   ],
   "verbose": true,
   "execMap": {

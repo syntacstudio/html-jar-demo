@@ -1,5 +1,32 @@
+"use strict"
+/**
+** Example controller
+**/
 const Controller  =  use("app/controllers/Controller")
 const Paginate = use("/config/pagination").Paginate;
+const CrudMaster = use("/config/crud");
+
+const crud  = new CrudMaster("world");
+crud.config();
+(async ()=>{
+	//console.log(await crud.all())
+	//await crud.store([{"name":"ahmed"} , {"name":"jiko"} , {"name":"keiko"}])
+
+
+
+
+	let lsm  =  await crud.all();
+		///lsm  = 	lsm.where("name","ahmed")
+		lsm  = lsm.whereMin("id",1)
+				  .whereMax("id",4)
+				  .where("name","ahmed") 
+		//console.log(lsm)
+	await crud.update("id",3,{
+		"name" : "tofik"
+	})
+
+})()
+
 
 class HomeController extends Controller {
 	constructor() {
