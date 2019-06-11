@@ -1,4 +1,4 @@
-class Auth {
+class auth {
 	
 	constructor() {
 		this.auth  =  true;
@@ -11,4 +11,4 @@ class Auth {
 	
 }
 
-module.exports = Auth;
+module.exports = auth;
