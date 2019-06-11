@@ -18,7 +18,7 @@ App.use(cookieParser());
 global.parseForm = parseForm;
 global.csrfProtection =  csrfProtection;
 // requiring 
-require("../config/Skeleton");
+require("../config/skeleton");
 // Use engine 
 use("config/engine")
 //
