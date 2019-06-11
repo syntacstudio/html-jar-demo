@@ -1,7 +1,7 @@
 "use strict"
 /**
 ** Creating pagination by array
-** Pagination
+** Pagination by url 
 ** @Parameter [array , count , paginatename , req = request ]
 **/
 const Paginate = async  function(data,count,name,req) {

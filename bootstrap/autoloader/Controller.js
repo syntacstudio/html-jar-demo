@@ -18,7 +18,7 @@ const recursiveReadSync = require('recursive-readdir-sync');
 const ControllerFiles  = recursiveReadSync(base("/app/controllers"));	
 ControllerFiles.forEach((item)=>{
 	try {
-		let itemName  =  item.replace(base("app/controllers/"),"").replace(".js","");
+		let itemName  =  item.replace(base("/app/controllers/"),"").replace(".js","");
 		if (itemName != "Controller") {
 			global[itemName] =  require(item);
 			global[itemName] = eval( "new "+itemName+"() " );

@@ -4,10 +4,12 @@ const fs  = require("fs");
 
 /**
 ** This file for creating base global function
-** @param string , directory
+** @param string , directory , Method
 **/
 
-//method
+/**
+** COnfiguration skeleton 
+**/
 const config =  [
 	{
 		name : "use",

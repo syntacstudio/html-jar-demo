@@ -1,3 +1,8 @@
+"use strict"
+/**
+** Engine configuration 
+**/
+
 const path = require('path')
 const edge = require('edge.js')
 const bodyParser = require('body-parser')
@@ -20,8 +25,8 @@ use("/helpers/helper");
 
 
 // get file data
-const getFile = async (file) => {
-	
+const  = async (file) => {
+
 	///return await 
 }
 
