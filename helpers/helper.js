@@ -17,7 +17,7 @@ edge.global("paginate",function(paginate,param={next:null,prev:null}) {
 		<nav aria-label="Page navigation example">
 		  <ul class="pagination justify-content-center">
 		    <li class="page-item ${paginate.current <= 1  ?  "disabled" : "" }">
-		      <a class="page-link" href="?${paginate.name}=${paginate.current >= 1 ? (paginate.current - 1) : paginate.current }" tabindex="-1">
+		      <a class="page-link" href="?${paginate.name}=${paginate.current >= 1 ? (parseInt(paginate.current) - 1) : paginate.current }" tabindex="-1">
 				${param["prev"] ? param["prev"] : "Previous" }
 		      </a>
 		    </li>
@@ -29,7 +29,7 @@ edge.global("paginate",function(paginate,param={next:null,prev:null}) {
 	}
 	template += `
 			<li class="page-item ${paginate.current >= paginate.limit ?  "disabled" : "" }" >
-		      <a class="page-link "  href="?${paginate.name}=${paginate.current < paginate.limit ? (paginate.current - 1) : paginate.current }">
+		      <a class="page-link "  href="?${paginate.name}=${paginate.current < paginate.limit ? (parseInt(paginate.current) + 1) : paginate.current }">
 				${param["next"] ? param["next"] : "Next" }
 		      </a>
 		    </li>
@@ -39,4 +39,7 @@ edge.global("paginate",function(paginate,param={next:null,prev:null}) {
 	return template;
 })
 
-// ${paginate.current < paginate.limit ? (paginate.current - 1) : "disabled" }
+
+/**
+** Put new helpers at this 
+**/
