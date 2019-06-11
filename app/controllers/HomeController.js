@@ -1,4 +1,4 @@
-const Controller  =  use("app/Controllers/Controller")
+const Controller  =  use("app/controllers/Controller")
 const Paginate = use("/config/pagination").Paginate;
 
 class HomeController extends Controller {
