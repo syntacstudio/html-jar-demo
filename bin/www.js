@@ -1,7 +1,8 @@
 "use strict"
 const express  =  require("express");
-var fs = require('fs')
-var https = require('https')
+const fs = require('fs')
+const moment = require('moment');
+const https = require('https')
 
 /**
 ** This basic data 
@@ -29,26 +30,31 @@ use("bootstrap/autoloader/Controller");
 	}
 })()
 
+// create logging 
+if (process.env.LOGGING == "true") {
+	App.use("/",function(req,res,next) {
+		console.log(`[${moment().format("dddd MMMM HH:mm:ss  YYYY")}] ${(process.env.ssl=="true"?"Https://":"Http://")+process.env.HOST+":"+process.env.PORT} [${res.statusCode}] : ${req.url}` )
+		return next();
+	})
+}
+
+App.use((err,req,res,next)=>{
+	if (req.xhr) {
+		return res.send({"status":"error","error":{"status":err.status,"name":err.name,"stack":err.stack}})
+	}
+	return res.send(view("components/errors.edge",{err:err}));
+})
 
 // use router 
 use("routes.web.js");
 //Use public dir
 App.use(express.static(base("public")));
-
-
 // 404
 App.use(function (req, res, next) {
   res.status(404).send(view("404"));
 })
-// 
-App.use((err,req,res,next)=>{
-	if (req.xhr) {
-		return res.status(500).send({"status":"error","error":{"status":err.status,"name":err.name,"stack":err.stack}})
-	}
-	return res.status(500).send(view("components/errors.edge",{err:err}));
-})
 // bad csurf
-App.use(function(err, req, res, next) {
+App.use((err, req, res, next)=> {
     if (err.code !== 'EBADCSRFTOKEN') return next(err);
     res.status(403).json({"error": "session has expired or tampered with"});
 });

@@ -10,3 +10,33 @@ edge.global("csrf",function() {
 edge.global("route",function(req =  false) {
 	return req ? Routes[req] : Routes ;
 })
+// pagination
+edge.global("paginate",function(paginate,param={next:null,prev:null}) {
+	paginate =  paginate.paginate
+	let template = `
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+		    <li class="page-item ${paginate.current <= 1  ?  "disabled" : "" }">
+		      <a class="page-link" href="?${paginate.name}=${paginate.current >= 1 ? (paginate.current - 1) : paginate.current }" tabindex="-1">
+				${param["prev"] ? param["prev"] : "Previous" }
+		      </a>
+		    </li>
+	`;
+	for (var i = 0; i < paginate.limit ; i++) {
+		template += `
+				<li class="page-item ${paginate.current == (i+1) ? "active" : ""}"><a class="page-link " href="?${paginate.name}=${i + 1}">${i + 1}</a></li>
+		`
+	}
+	template += `
+			<li class="page-item ${paginate.current >= paginate.limit ?  "disabled" : "" }" >
+		      <a class="page-link "  href="?${paginate.name}=${paginate.current < paginate.limit ? (paginate.current - 1) : paginate.current }">
+				${param["next"] ? param["next"] : "Next" }
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+		`
+	return template;
+})
+
+// ${paginate.current < paginate.limit ? (paginate.current - 1) : "disabled" }

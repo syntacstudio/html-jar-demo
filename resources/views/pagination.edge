@@ -5,10 +5,7 @@
 @endsection
 
 @section("content")
-
 	<div class="container my-5">
-		<h1 class="text-center">HOMEPAGE WORKED</h1>
-
 		<br>
 		<table class="table table-bordered table-striped ">
 			<thead class="bg-primary text-white">
@@ -27,17 +24,5 @@
 			</tbody>
 		</table>
 		{{{paginate(cake,{prev:"Belakang",next:"Depan"})}}}
-	
-
-
-		<form action="{{route("store")}}" method="post">
-			{{{csrf()}}}
-			<div class="clearfix">
-				<div class="form-group">
-					<input type="text" name="name" class="form-control">
-				</div>
-				<button class="btn btn-submit btn-primary" type="submit">Submit</button>
-			</div>
-		</form>
 	</div>
 @endsection

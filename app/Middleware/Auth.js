@@ -4,9 +4,8 @@ class Auth {
 		this.auth  =  true;
 	}
 	
-	run(req,res,next) {
-
-		return this.auth == true ? true : res.sendStatus(404,"cant access this page") ; 
+	run({req,res,next}) {
+		return this.auth == true ? true : res.sendStatus(404) ; 
 	}
 
 	
