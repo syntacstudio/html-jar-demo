@@ -5,7 +5,7 @@
 ** @Parameter [array , count , paginatename , req = request ]
 **/
 const Paginate = async  function(data,count,name,req) {
-	const page  = req.query[name];
+	const page  = req.query[name] ? req.query[name] : 1;
 	const result  = {};
 		  result.data = [];
 		  result.paginate = {};
