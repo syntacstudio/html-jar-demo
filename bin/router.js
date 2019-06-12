@@ -15,12 +15,6 @@ global["Routes"] =  {};
 /**
 ** Global creator
 **/
-/*
-Route.post("/hello",parseForm, csrfProtection,function(req,res,next){
-	return res.send("demo")
-})*/
-
-
 // Method get 
 async function Get(route,controller,param=null) {
 	// creatign global name
