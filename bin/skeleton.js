@@ -7,6 +7,7 @@
 const express  =  require("express");
 const env =  require("dotenv").config();
 const csrf = require('csurf');
+const compression = require('compression')
 const path  =  require("path");
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
@@ -18,6 +19,7 @@ global.App  =  App;
 App.use(cookieParser());
 App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: true }))
+App.use(compression())
 App.use(methodOverride('X-HTTP-Method-Override'))
 App.use(methodOverride(function (req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
