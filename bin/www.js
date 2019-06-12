@@ -34,7 +34,9 @@ use("routes.web.js");
 //Use public dir
 App.use(express.static(base("public")));
 // use router
-App.use(Route);
+if (process.env.WEB_SERVER == "false") {
+	App.use(Route);
+}
 // 404
 App.use(function(req, res, next) {
   res.status(404).send(view("404"));
