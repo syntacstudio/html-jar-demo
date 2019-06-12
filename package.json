@@ -2,7 +2,7 @@
   "name": "curator",
   "version": "1.0.0",
   "description": "",
-  "main": "functions/app.js",
+  "main": "./app.js",
   "scripts": {
     "start": "node ./app.js",
     "netlify": "netlify-lambda build function",
