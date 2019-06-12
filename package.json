@@ -50,5 +50,9 @@
   },
   "engines": {
     "node": "11.x"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^1.4.13",
+    "serverless-http": "^2.0.2"
   }
 }
