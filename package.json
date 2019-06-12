@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "node ./app.js",
-    "netlify": "netlify-lambda build ./",
+    "netlify": "netlify-lambda build ./app.js",
     "dev": "node_modules/nodemon/bin/nodemon.js  ./app.js",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
