@@ -8,6 +8,7 @@ const express  =  require("express");
 const env =  require("dotenv").config();
 const csrf = require('csurf');
 const path  =  require("path");
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const csrfProtection = csrf({ cookie: true });
@@ -15,6 +16,18 @@ const parseForm = bodyParser.urlencoded({ extended: false })
 const App  =  express();
 global.App  =  App;
 App.use(cookieParser());
+App.use(bodyParser.json());
+App.use(bodyParser.urlencoded({ extended: true }))
+App.use(methodOverride('X-HTTP-Method-Override'))
+App.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}))
+//App.use(express.methodOverride());
 global.parseForm = parseForm;
 global.csrfProtection =  csrfProtection;
 // requiring 

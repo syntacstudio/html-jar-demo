@@ -10,6 +10,10 @@ edge.global("csrf",function() {
 edge.global("route",function(req =  false) {
 	return req ? Routes[req] : Routes ;
 })
+// method field
+edge.global("method",function(method) {
+	return `<input type="hidden" name="_method" value="${method}">`;
+})
 // pagination
 edge.global("paginate",function(paginate,param={next:null,prev:null}) {
 	paginate =  paginate.paginate

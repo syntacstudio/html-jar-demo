@@ -90,6 +90,18 @@ class DataCrud  {
 	 await this.write(JSON.stringify(next));
 	 return true;
 	}
+	/// delete
+	async delete(param,where) {
+		let base =  await JSON.parse(await this.read());
+		let next = [];
+		base.forEach(function(item) {
+			if (item[param] != where ) {
+				next.push(item)
+			}
+		})
+		await this.write(JSON.stringify(next));
+		return true;
+	} 
 
 }
 // protityping array
@@ -106,6 +118,7 @@ Array.prototype.where =  function(param,where) {
 }
 // whereLike
 Array.prototype.whereLike =  function(param,where) {
+	console.log(where)
 		let _obj  =  [];
 		this.forEach((item)=>{
 			if (item[param].toString().toLowerCase().includes(where.toString().toLowerCase())) {

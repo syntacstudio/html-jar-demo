@@ -1,0 +1,50 @@
+@layout("layouts/app")
+
+@section("helpers")
+
+@endsection
+
+@section("content")
+
+	<div class="container my-5">
+		<h1 class="text-center">Example crud using json</h1>
+		<br>
+		<div class="w-100 clearfix ">
+			<div class="float-left">
+				<form action="{{route("json.crud.search")}}" method="get">
+					<div class="form-group form-inline">
+						<input type="text" name="key" placeholder="Search name...."  class="form-control float-left">
+						<button class="float-right ml-2 btn btn-primary text-white">Search</button>
+					</div>
+				</form>
+			</div>
+			<a href="{{route("json.crud.create")}}" class="btn btn-primary float-right mb-2 text-white px-5">Create</a>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped ">
+				<thead class="bg-primary text-white">
+					<th>No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Hoby</th>
+					<th width="200">Action</th>
+				</thead>
+				<tbody>
+					@each(item in data.data)
+			 			<tr>
+			 				<td>{{$loop.index + 1}}</td>
+			 				<td>{{item.name}}</td>
+			 				<td>{{item.age}}</td>
+			 				<td>{{item.hoby}}</td>
+			 				<td>
+			 					<a href="/jsoncrud/edit/{{item.id}}" class="btn btn-warning">Edit</a>
+			 					<a href="/jsoncrud/delete/{{item.id}}" class="btn btn-danger">Delete</a>
+			 				</td>
+			 			</tr>
+					@endeach
+				</tbody>
+			</table>
+		</div>
+		{{{paginate(data,{prev:"Prev",next:"Next"})}}}
+	</div>
+@endsection
