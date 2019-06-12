@@ -2,7 +2,7 @@
 /**
 ** Creating expert router
 **/
-import { App as Route  } from "./skeleton";
+import { App ,  Route  } from "./skeleton";
 import { Render  } from "./render";
 
 use("app/kernel");

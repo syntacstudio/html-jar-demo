@@ -9,7 +9,7 @@ const https = require('https')
 ** This basic data 
 ** @note please dont modify :)
 **/
-import { App } from "./skeleton";
+import { App , Route } from "./skeleton";
 //Load  Controllers
 use("bootstrap/autoloader/Controller");
 
@@ -33,6 +33,8 @@ App.use((err,req,res,next)=>{
 use("routes.web.js");
 //Use public dir
 App.use(express.static(base("public")));
+// use router
+App.use(Route);
 // 404
 App.use(function(req, res, next) {
   res.status(404).send(view("404"));
@@ -47,7 +49,7 @@ App.use((err,req,res)=>{
 })
 // start server
 if (process.env.WEB_SERVER == "netlify") {
-	App.use('/.netlify/functions/server',App);
+	App.use('/.netlify/functions/server',Route);
 	module.exports = App;
 	module.exports.handler = serverless(App);
 } else {

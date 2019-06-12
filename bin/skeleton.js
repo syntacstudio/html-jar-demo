@@ -21,7 +21,9 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: true }))
 App.use(compression())
 App.use(methodOverride('X-HTTP-Method-Override'))
+
 const Route = express.Router();
+
 App.use(methodOverride(function (req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     // look in urlencoded POST bodies and delete it
@@ -30,7 +32,8 @@ App.use(methodOverride(function (req, res) {
     return method
   }
 }))
-//App.use(express.methodOverride());
+
+global.Route =  Route;
 global.parseForm = parseForm;
 global.csrfProtection =  csrfProtection;
 // requiring 
@@ -40,5 +43,5 @@ use("config/engine")
 //
 
 module.exports  = {
-	App 
+	App , Route
 }
