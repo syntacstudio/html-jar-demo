@@ -1,5 +1,5 @@
 # **HTMLJAR**
-Curator is an html builder using the template engine edge from Adonis, we try to implement the template engine from the backend to the frontend, this template engine is very similar to the blade of Laravel.
+Htmljar is an html builder using the template engine edge from Adonis, we try to implement the template engine from the backend to the frontend, this template engine is very similar to the blade of Laravel.
 Curator has also used Laravelmix for its bundler assets and already, includes bootstrap version 4 and other supporting components  
 
   # Installation
