@@ -8,7 +8,6 @@ Route.Get("/paginate",HomeController.pagination,{name:"paginate"});
 Route.Post("/hello",HomeController.store,{name:"store"});
 
 
-/// json crud router 
 
 Route.Get("/jsoncrud",JsonCrudController.index,{name:"json.crud"});	
 Route.Get("/jsoncrud/search",JsonCrudController.search,{name:"json.crud.search"});	
@@ -18,12 +17,9 @@ Route.Get("/jsoncrud/edit/:id",JsonCrudController.edit,{name:"json.crud.edit"});
 Route.Post("/jsoncrud/update",JsonCrudController.update,{name:"json.crud.update"});
 Route.Get("/jsoncrud/delete/:id",JsonCrudController.delete,{name:"json.crud.delete"});
 
-// Example mail
-Route.Get("/mail",MailController.index);
-Route.Post("/mail/send",MailController.send);
 
-/*
-Route.Group("/bambang",function(Route) {
-	Route.Get("/demo",HomeController.index);
-})
-*/
+
+
+Route.Get("/mail",MailController.index);
+Route.Get("/mail/hello",HomeController.index);
+Route.Post("/mail/send",MailController.send);

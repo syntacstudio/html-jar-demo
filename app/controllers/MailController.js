@@ -4,17 +4,16 @@
 **/
 const Controller  =  use("app/Controller");
 const WelcomeMail =  use("app/mails/WelcomeMail");
-const Mail  =  new WelcomeMail();
-//const demo  = .to("de,p")
 
 class MailController extends Controller {
 	constructor() {
 		super();
 	}
-	async index() {
-		return await view("mail");
+	index() {
+		return view("mail");
 	}
 	async send({req,res}) { 
+		const Mail  =  new WelcomeMail();
 		Mail.to(req.body.to)
 		Mail.from(req.body.from)
 		Mail.subject(req.body.subject)
