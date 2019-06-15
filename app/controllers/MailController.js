@@ -3,7 +3,7 @@
 ** Example controller
 **/
 const Controller  =  use("app/Controller");
-const WelcomeMail =  use("app/mails/Welcomemail");
+const WelcomeMail =  use("app/mails/WelcomeMail");
 const Mail  =  new WelcomeMail();
 //const demo  = .to("de,p")
 
