@@ -28,22 +28,3 @@ ControllerFiles.forEach((item)=>{
 		console.log(err)
 	}
 })
-
-//console.log(global)
-
-
-/*
- function load(name) {
- 	let file  =  name.split(".");
- 	let readed = "";
- 	if (file.length > 2) {
- 		for (var i = 0; i < (file.length - 1); i++) {
- 			readed += "/"+file[i]
- 		}
- 	} else {
- 		readed = file[0];
- 	}
- 	global[file[(file.length - 2)]] = eval('use("app/controllers/'+readed+'")');
- 	//delete global[file[(file.length - 2)]]
- 	return  eval("new "+file[(file.length - 2)]+"()."+file[(file.length-1)]);
- }*/

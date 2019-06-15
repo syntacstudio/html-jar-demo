@@ -7,37 +7,8 @@
 @section("content")
 
 	<div class="container my-5">
+		@csrf
 		<h1 class="text-center">HOMEPAGE WORKED</h1>
-
 		<br>
-		<table class="table table-bordered table-striped ">
-			<thead class="bg-primary text-white">
-				<th>No</th>
-				<th>F Name</th>
-				<th>L name</th>
-			</thead>
-			<tbody>
-				@each(item in cake.data)
-		 			<tr>
-		 				<td>{{$loop.index}}</td>
-		 				<td>{{item.fname}}</td>
-		 				<td>{{item.lname}}</td>
-		 			</tr>
-				@endeach
-			</tbody>
-		</table>
-		{{{paginate(cake,{prev:"Belakang",next:"Depan"})}}}
-	
-
-
-		<form action="{{route("store")}}" method="post">
-			{{{csrf()}}}
-			<div class="clearfix">
-				<div class="form-group">
-					<input type="text" name="name" class="form-control">
-				</div>
-				<button class="btn btn-submit btn-primary" type="submit">Submit</button>
-			</div>
-		</form>
 	</div>
 @endsection

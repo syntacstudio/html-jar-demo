@@ -42,9 +42,13 @@ App.use(function(req, res, next) {
   res.status(404).send(view("404"));
 })
 // bad csurf
-App.use((err, req, res, next)=> {
+App.use(async (err, req, res, next)=> {
     if (err.code !== 'EBADCSRFTOKEN') return next(err);
-    res.status(403).json({"error": "session has expired or tampered with"});
+    let error  = {};
+		error["status"] = "403";
+		error["name"] =  "Session expired";
+		error["stack"] =  `Session has expired or tampered with`;
+    res.status(403).send(await view("components/errors",{err:error}) );
 });
 App.use((err,req,res)=>{
 	return res.send(err);

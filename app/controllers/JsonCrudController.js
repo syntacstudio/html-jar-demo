@@ -2,11 +2,10 @@
 /**
 ** Example controller
 **/
-const Controller  =  use("app/controllers/Controller")
+const Controller  =  use("app/Controller")
 const Paginate = use("/config/pagination").Paginate;
-const CrudMaster = use("/config/crud");
-const crud  = new CrudMaster("world");
-
+const JsonCrud = use("/config/crud");
+const crud  = new JsonCrud("world");
 
 class HomeController extends Controller {
 	constructor() {

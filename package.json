@@ -39,21 +39,20 @@
     "method-override": "^3.0.0",
     "mime": "^2.4.2",
     "moment": "^2.24.0",
+    "netlify-lambda": "^1.4.13",
+    "nodemailer": "^6.2.1",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
-    "popper.js": "^1.15.0", 
-    "netlify-lambda": "^1.4.13",
-    "serverless-http": "^2.0.2", 
+    "popper.js": "^1.15.0",
     "recursive-readdir-sync": "^1.0.6",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",
+    "serverless-http": "^2.0.2",
     "vue-template-compiler": "^2.6.10"
   },
   "engines": {
     "node": "11.x"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

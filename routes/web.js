@@ -17,3 +17,13 @@ Route.Post("/jsoncrud/store",JsonCrudController.store,{name:"json.crud.store"});
 Route.Get("/jsoncrud/edit/:id",JsonCrudController.edit,{name:"json.crud.edit"});	
 Route.Post("/jsoncrud/update",JsonCrudController.update,{name:"json.crud.update"});
 Route.Get("/jsoncrud/delete/:id",JsonCrudController.delete,{name:"json.crud.delete"});
+
+// Example mail
+Route.Get("/mail",MailController.index);
+Route.Post("/mail/send",MailController.send);
+
+/*
+Route.Group("/bambang",function(Route) {
+	Route.Get("/demo",HomeController.index);
+})
+*/

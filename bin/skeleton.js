@@ -5,6 +5,7 @@
 ** 
 **/ 
 const express  =  require("express");
+require('events').EventEmitter.defaultMaxListeners = 0;
 const env =  require("dotenv").config();
 const csrf = require('csurf');
 const compression = require('compression')
@@ -21,7 +22,7 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: true }))
 App.use(compression())
 App.use(methodOverride('X-HTTP-Method-Override'))
-
+require('express-router-group');
 const Route = express.Router();
 
 App.use(methodOverride(function (req, res) {
@@ -32,6 +33,14 @@ App.use(methodOverride(function (req, res) {
     return method
   }
 }))
+/*
+Route.group("/bambang",function(Route) {
+	Route.get("/",function(req,res){
+		return res.send("bgst")
+	})	
+})
+*/
+
 
 global.Route =  Route;
 global.parseForm = parseForm;

@@ -2,9 +2,10 @@
 /**
 ** Example controller
 **/
-const Controller  =  use("app/controllers/Controller")
+const Controller  =  use("app/Controller")
 const Paginate = use("/config/pagination").Paginate;
 const CrudMaster = use("/config/crud");
+const WelcomeMail  =  use("/app/mails/WelcomeMail");
 
 const crud  = new CrudMaster("world");
 crud.config();

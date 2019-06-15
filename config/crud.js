@@ -7,9 +7,7 @@ const fs  = require("fs");
 ** @param json , value , loader
 **/
 
-class DataCrud  {
-
-
+class JsonCrud  {
 	// constructor
 	constructor(fileName) {
 		this.fileName  =  fileName;
@@ -150,4 +148,4 @@ Array.prototype.whereMax = function(param,where) {
 
 
 
-module.exports =  DataCrud;
+module.exports =  JsonCrud;
