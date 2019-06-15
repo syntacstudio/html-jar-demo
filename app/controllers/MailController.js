@@ -11,8 +11,8 @@ class MailController extends Controller {
 	constructor() {
 		super();
 	}
-	index() {
-		return view("mail");
+	async index() {
+		return await view("mail");
 	}
 	async send({req,res}) { 
 		Mail.to(req.body.to)
