@@ -50,6 +50,7 @@ App.use(async (err, req, res, next)=> {
 		error["stack"] =  `Session has expired or tampered with`;
     res.status(403).send(await view("components/errors",{err:error}) );
 });
+
 App.use((err,req,res)=>{
 	return res.send(err);
 })

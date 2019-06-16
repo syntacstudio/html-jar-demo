@@ -12,8 +12,6 @@ class HomeController extends Controller {
 	}
 	// index
 	async index({req,res,next}) {
-	 	let cake  =  await loadData("cake");
-	 	    cake  =  await Paginate(cake,9,"cake",req);
 		return view("index");
 	}	
 }
